@@ -1,0 +1,497 @@
+/* Feuille de styles CSS pour le TP1 par Camilia El Moustarih */ 
+
+/* Normalisation supplémentaire */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styles généraux */
+html{
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%; /* Afin d'éviter le défilement à l'horizontale */
+    scroll-behavior: smooth;
+    font-size: clamp(16px, 0.5rem + 0.5vw, 24px);
+}
+
+body{
+    font-family: 'Mynerve', cursive;
+    /* Image de fond personnalisée */
+    background-image:url("../images/BG_image.jpg");
+    background-size: contain;
+}
+
+
+/* ********* Styles adaptés pour petits appareils (approche « Mobile First ») ********* */
+body{
+    max-width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+    /* Affichage flex des enfants en colonne*/
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+main{
+    padding: 10%;
+}
+
+/* Styles de l'entête */
+header h1, header h3{
+    text-align: center;
+    background-color: #ffe4c4;
+    border: 4px dotted #5a0f0f;
+}
+
+/* Animation du titre h1*/
+@keyframes animer-titre{
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(3vw);
+    }
+
+    75%{
+        transform: translateY(-3vw);
+    }
+}
+
+h1{
+    animation: animer-titre 5500ms infinite both;
+}
+
+
+/********** Propriétés du menu principal **********/
+/* Styles pour le menu principal */
+.menuPrincipal{
+    display: flex;
+    flex-direction: row;    
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #ffe4c4;
+    border: 5px #5a0f0f dotted;
+    width: 70vw;
+    height: 10vh;
+    z-index: 1;
+    padding-left: 2%;
+    transform: translateX(-100%);
+    transition: transform 1s;
+}
+
+.menuPrincipal a{
+    color: #5a0f0f;    
+    text-decoration: none;     
+    opacity: 0.2;
+    text-align: left;
+}
+
+/* Pour faire disparaître ou apparaître le menu lorsque le bouton est à son état "checked" */
+#checkboxBoutonBurger:checked + label > .patte{
+    transform: rotateX(2.5turn);
+    color: #c43030;
+    transition: transform 2s ease-in-out;
+}
+
+#checkboxBoutonBurger:checked ~ .menuPrincipal{
+    transform: translateX(0%);
+}
+
+/* Pour cacher la case à cocher du bouton burger */
+#checkboxBoutonBurger{
+    display: none;
+}
+
+.menuPrincipal a:hover{
+    color: #a52a2a;
+    font-size: 1.4rem;
+}
+
+@keyframes animer-texte-nav{
+    from{
+        text-align: left;
+    }
+
+    to{
+        transform: translateX(10%);
+        opacity: 1;
+    }
+}
+
+.menuPrincipal a:hover{
+    animation: animer-texte-nav 2s infinite;
+}
+
+
+/********** Propriétés du contenu principal de la page **********/
+/* Styles du contenu dans les 4 conteneurs div de chats */
+.contenuConteneursChats{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#conteneursChats{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#conteneursChats div{
+    flex: 1 1 auto;
+    height: 50vh;
+    width: 30vh;
+    border: solid 2px #5a0f0f;
+}
+
+#conteneursChats h2{
+    font-family: 'Rubik Iso', cursive;
+    text-align: center;
+    margin-top: 5%;
+    padding-top: 5%;
+}
+
+#conteneursChats h4{
+    text-align: center;
+    border: 4px dotted #5a0f0f;
+}
+
+#chatSaute, #chatEcrase, #chatMange, #conteneursChats h4{
+    background-color: #ffe4c4;
+}
+
+/* Propriétés CSS de la div du chat qui saute */
+#chatSaute img{
+    margin-top: 40%;
+    height: 60%;
+}
+
+/* Propriétés CSS de la div du chat qui dort */
+#chatDort .lune{
+    background-color: #ffffcd;
+    border: none;
+    border-radius: 50%;
+    height: 5em;
+    width: 5em;
+    margin-top: 10%;
+    transform: translateX(-110%);
+    opacity: 0%;
+    transform-origin: 0 0;
+    box-shadow: 25px 10px 0px 0px #fff;
+    background-color: transparent;
+}
+
+#chatDort p{
+    color: #ffffff;
+    font-weight: bolder;
+    font-size: xx-large;
+    text-align: center;
+    opacity: 0%;
+}
+
+#chatDort img{
+    margin-top: 50%;
+    width: 80%;
+}
+
+#chatEcrase img{
+    margin-top: 50%;
+    width: 80%;
+}
+
+/* Propriétés CSS de la div du chat qui s'écrase */
+#chatEcrase .trouNoir{
+    background-color: #000000;
+    border-radius: 50%;
+    height: 5em;
+    width: 5em;
+    margin: -60% auto;
+}
+
+/* Propriétés CSS de la div du chat qui mange */
+#chatMange{
+    background-color: #ffe4c4;
+}
+
+#chatMange .chatVaManger{
+    margin-top: 50%;
+    width: 60%;    
+    z-index: 1;
+    position: relative;
+}
+
+#chatMange .bolBouffe{
+    width: 40%;
+    transform: translateX(-50%) translateY(-450%);
+}
+
+#chatMange .coeur{
+    width: 30%;
+    opacity: 0;
+}
+
+#chatSaute img, #chatDort img, #chatEcrase img, #chatMange img{
+    display: block;    
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/******* Animations des images de chats avec des règles @keyframes*******/
+/* Animation - Le chat saute */
+@keyframes animer-chat-saut{
+    from {
+        transform:translateY(-5em) scale(0.9,1.1);
+        animation-timing-function: cubic-bezier(0.7, 0,1,0.7);
+    }
+
+    70% {
+        transform:translateY(5em) scale(1,1);
+        animation-timing-function: cubic-bezier(0,0.8,0.8,1);
+    }
+
+    to {
+        transform:translateY(5em) scale(1.3, 0.8);
+    }
+}
+
+#chatSaute img{
+    animation-play-state: paused; /* Pour que l'animation ne joue pas au démarrage */
+}
+
+#chatSaute img:hover{
+    animation:animer-chat-saut 1s infinite alternate; /* Pour que l'animation joue sur hover */
+}
+
+/* Animation - Le chat dort */
+@keyframes animer-couleur-fond{
+    from{
+        /*background-image: linear-gradient(#83e2ff, #ffcdcd);*/
+        background-color: #b3d1ff;
+    }
+
+    to{
+        /*background-image: linear-gradient(#00255c, #3f79cf);*/
+        background-color: #00255c;
+    }
+}
+
+@keyframes apparaitre-lune{
+    from{
+        transform: translateX(0%) rotate(-180deg);
+    }
+
+    to{
+        transform: translateX(100%) rotate(0deg);
+        opacity: 1;
+        transition-timing-function: cubic-bezier(0,.34,1,.03);
+    }
+}
+
+@keyframes apparaitre-texte{
+    from{
+        transform: translateY(60%);
+        font-size: small;
+    }
+
+    to{
+        transform: translateY(100%);
+        opacity: 1;
+        font-size: xx-large;
+    }
+}
+
+#chatDort{
+    animation: animer-couleur-fond 5s infinite alternate;
+}
+
+#chatDort .lune{
+    animation: apparaitre-lune 5s infinite alternate;
+}
+
+#chatDort p{
+    animation: apparaitre-texte 5s infinite alternate;
+}
+
+/* Animation - Le chat s'écrase */
+@keyframes ecraser-chat{
+    from{
+        transform: scale(1);
+    }
+
+    50%{
+        transform: scale(0.7, 1.3);
+    }
+
+    to{
+        transform: scale(0,0);
+    }
+}
+
+#chatEcrase img{
+    animation: ecraser-chat 3s infinite;
+}
+
+/* Animation - Le chat mange */
+@keyframes animation-chat-mange{
+    from, to{
+       transform: scale(1, 1);
+    }
+
+    25%, 50%{
+        transform: scale(0.9, 1.1);
+    }
+}
+
+@keyframes descente-battement-coeur{
+    from{
+        transform: translateY(-600%);
+        opacity: 0;
+        transition-timing-function: cubic-bezier(0,.65,1,.03);
+    }
+
+    25%, 95%{
+        transform: translateY(-500%);
+        opacity: 1;
+        transition-timing-function: cubic-bezier(0,.65,1,.03);
+    }
+
+    50%, 85%{
+        transform: translateY(-500%) scale(1.8);
+        opacity: 1;
+        transition-timing-function: cubic-bezier(0,.65,1,.03);
+    }
+
+    75%{
+        transform: translateY(-500%) scale(1);
+        opacity: 1;
+        transition-timing-function: cubic-bezier(0,.65,1,.03);
+    }
+
+    to{
+        opacity: 0;
+    }
+}
+
+#chatMange .chatVaManger:hover{
+    animation: animation-chat-mange 0.5s 1s infinite;
+}
+
+#chatMange .coeur{
+    animation: descente-battement-coeur 5s 2s infinite;
+}
+
+/* Style pour le bouton fleché qui retourne au haut de page */
+#boutonFleche{
+    margin-left: 95%;
+    margin-top: 5%;
+    /*position: fixed; */
+    /*Je voulais que le bouton pour remonter en haut de page reste fixe, mais je n'ai pas réussi*/
+}
+
+.boutonHaut{
+    background-color: #5a0f0f;
+    border-radius: 100%;
+}
+
+.boutonHaut .flecheHaut{
+    color: #ffe4c4;
+}
+
+/* Styles pour le footer */
+footer{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    background-color: #ffe4c4;
+    border-top: 4px dotted #5a0f0f;
+    /*width: 100%;*/
+}
+
+footer h3{
+    text-align: center;
+    padding: 2%;
+    font-size: clamp(18px, 0.5rem + 0.5vw, 24px);
+}
+
+
+/*******Requêtes média*******/
+/* Requêtes média pour écrans moyens (768 px et plus)*/
+@media screen and (min-width: 768px){
+.menuPrincipal a{
+    transform: translateY(-100%);
+    transition: transform 1s;
+    }
+
+.menuPrincipal a:hover{
+    border: 2px #5a0f0f solid;
+}
+}
+
+/* Requêtes média pour écrans larges (992px et plus)*/
+@media screen and (min-width: 992px){
+    main{
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;        
+        width: 40%;
+        height: 40%;
+        margin: 0 auto;
+        margin-top: -8%;
+    }
+
+    .contenuConteneursChats¸{  
+        margin-left: 30%;
+        margin-right: 30%;
+    }
+
+    #conteneursChats{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        max-width: fit-content;
+        min-width: 30%;
+    }
+
+    #conteneursChats h2, #conteneursChats h4{
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+    }
+
+    .menuPrincipal{
+        transform: translateY(-100vh);
+        transition: transform 2s;
+    }
+    
+    /* Pour faire disparaître le bouton de menu */
+    #patteMenu{
+        display: none;
+    }
+
+    /* Afin que la flèche disparaisse puisqu'elle n'est plus utile */
+    #boutonFleche{
+        display: none;
+    }
+
+    footer{
+        bottom: 0vh;
+        width: 100%;
+        margin-top: 10vh;
+        position: relative;
+    }
+}

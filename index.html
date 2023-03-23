@@ -1,0 +1,141 @@
+<!-- Page HTML pour le TP1 par Camilia El Moustarih -->
+
+<!-- Sources:   
+Pinceaux utilisés pour l'image de fond : Photoshop Brushes by https://www.brusheezy.com
+
+Images vectorielles de chat: Vecteezy.com
+-->
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <!-- Ajustement de la taille du viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mon hommage aux chats</title>
+
+    <!-- Icône pour l'onglet de tabulation -->
+    <link rel="icon" type="image/ico" href="favicon.ico">
+
+    <!-- Intégration des polices de caractères de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mynerve&family=Rubik+Iso&display=swap" rel="stylesheet">
+
+    <!-- Intégration de la police d'icônes Material Icons de Google -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Intégration des feuilles de styles CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <h3>Mon hommage aux chats</h3>
+        <h1>Ces créatures si mystérieuses</h1>
+        
+        <!-- Images adaptatives pour l'entête-->
+        <picture>
+            <source media="(min-width: 992px)" srcset="images/banniereHeader_bureau-1920px.svg"><!-- Ordinateur de bureau -->
+            <source media="(min-width: 576px)" srcset="images/banniereHeader_tablette-991px.svg"><!-- Écran de tablette -->
+            <img src="images/banniereHeader-576px.svg" alt="Image de bannière de base pour mobile"> <!-- Écran de mobile -->
+        </picture>
+
+        <!-- Menu pour naviguer entre les 4 divs et qui disparaîtra lorsque le site sera affiché en mode bureau pleine page -->
+        <!-- Bouton burger sous forme de patte d'animal qui affichera ou dissimulera le menu lorsque coché -->
+        <div id="patteMenu">                
+            <input type="checkbox" id="checkboxBoutonBurger">
+            <label for="checkboxBoutonBurger" class="boutonBurger">
+                <span class="material-icons patte">pets</span>
+            </label>
+
+            <!-- Menu principal nav -->
+            <nav class="menuPrincipal">        
+                    <a href="#refSaut">-Le chat saute-</a>
+                    <a href="#refDort">-Le chat dort-</a>
+                    <a href="#refEcrase">-Le chat s'écrase-</a>
+                    <a href="#refMange">-Le chat mange-</a>
+            </nav>        
+        </div> 
+
+    </header>
+
+    <!-- Contenu principal de la page avec une section pour les 4 conteneurs principaux contenant les animations de chats --> 
+    <main>
+
+        <section id="conteneursChats">
+
+            <!-- Conteneur du chat qui saute -->
+            <section class="contenuConteneursChats">
+                <h2 id="refSaut">Le chat saute</h2>
+                <div id="chatSaute">
+                    <img src="images/chatSaute.svg" alt="Le chat saute" title="Image SVG d'un chat qui saute">
+                </div>
+                <h4 class="faitsInteressants">*Survolez pour faire sauter le chat* <br> Le chat est très agile sur ses pattes. Il peut sauter jusqu'à 6 fois sa hauteur! Quel acrobate!</h4>
+            </section>
+
+            <!-- Conteneur du chat qui dort -->
+            <section class="contenuConteneursChats">
+                <h2 id="refDort">Le chat dort</h2>
+                <div id="chatDort">
+                    <div class="lune"></div>
+                    <p>Z Z Z</p>
+                    <img src="images/chatDort.svg" alt="Le chat dort" title="Image SVG d'un chat qui dort">
+                </div>
+                <h4 class="faitsInteressants">Les chats peuvent passer 70% de leur vie à dormir! Ce qui équivaut à approximativement 16 heures par jour! zzz</h4>
+        </section>
+
+            <!-- Conteneur du chat qui s'écrase -->
+            <section class="contenuConteneursChats">                
+                <h2 id="refEcrase">Le chat s'écrase</h2>
+                <div id="chatEcrase">
+                    <img src="images/chatEcrase.svg" alt="Le chat s'écrase" title="Image SVG d'un chat">
+                    <div class="trouNoir"></div>
+                </div>
+                <h4 class="faitsInteressants">La colonne vertébrale du chat contient 54 os « flottants » ce qui fait qu'il est capable de plier son corps et se faufiler n'importe où.</h4>
+            </section>
+
+            <!-- Conteneur du chat qui mange -->
+            <section class="contenuConteneursChats">
+                <h2 id="refMange">Le chat mange</h2>
+                <div id="chatMange">
+                    <img class="chatVaManger" src="images/chatMange1.svg" alt="Le chat mange" title="Image SVG d'un chat qui mange">
+                    <img class="bolBouffe" src="images/bolBouffe_1.svg" alt="Bol de nourriture" title="Image SVG d'une gamelle remplie">
+                    <img class="coeur" src="images/coeur.svg" alt="Coeur">
+                </div>
+                <h4 class="faitsInteressants">*Survolez pour nourrir le chat* <br> Saviez-vous que les chats ne peuvent pas croquer? Ils broient leur nourriture avec leurs dents.</h4>
+            </section>
+
+        </section>
+
+        <!-- Bouton fleché pour retourner au haut de la page -->
+        <div id="boutonFleche">
+            <a href="#" class="material-icons boutonHaut">
+            <span class="material-icons flecheHaut"> arrow_upward </span>
+            </a>
+            Haut!
+        </div>
+
+    </main>
+
+    <!-- Bas de page -->
+    <footer>
+        <h3>582-2W2-MA</h3>
+        <h3>Travail fait par Camilia El Moustarih</h3>
+        <h3>TIM Hiver 2023</h3>
+    </footer>
+
+    <script src="js/index.js"></script>
+</body>
+
+</html>
+
+
